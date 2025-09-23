@@ -2,7 +2,11 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
+<<<<<<< HEAD
         flex: 1,
+=======
+        flex: 0,
+>>>>>>> e4110ad7cf14606ed29b63bae40089b628a401eb
         backgroundColor: '#2C2C2C',
     },
     header: {
@@ -40,9 +44,12 @@ const styles = StyleSheet.create({
         fontSize: 12,
         marginTop: 5,
     },
+<<<<<<< HEAD
     keyboardAvoidingView: {
         flex: 1,
     },
+=======
+>>>>>>> e4110ad7cf14606ed29b63bae40089b628a401eb
     scrollViewContent: {
         flexGrow: 1,
         alignItems: 'center',

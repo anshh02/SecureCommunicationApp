@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
         color: '#FFFFFF',
         fontSize: 24,
         fontWeight: 'bold',
+<<<<<<< HEAD
         flex: 1,
         textAlign: 'center',
     },
@@ -28,6 +29,11 @@ const styles = StyleSheet.create({
     },
     headerSpacer: {
         width: 24, // Same width as menuIcon to center the title
+=======
+    },
+    logoutIcon: {
+        fontSize: 24,
+>>>>>>> e4110ad7cf14606ed29b63bae40089b628a401eb
     },
     // Search Bar Styles
     searchContainer: {

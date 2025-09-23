@@ -11,8 +11,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         paddingHorizontal: 20,
+<<<<<<< HEAD
         paddingTop: 10,
         paddingBottom: 8,
+=======
+        paddingTop: 20,
+        paddingBottom: 15,
+>>>>>>> e4110ad7cf14606ed29b63bae40089b628a401eb
         backgroundColor: '#3D3D3D', 
         borderBottomWidth: 1,
         borderBottomColor: '#4A4A4A',
@@ -25,6 +30,7 @@ const styles = StyleSheet.create({
         fontSize: 28,
         fontWeight: 'bold',
     },
+<<<<<<< HEAD
     titleContainer: {
         flex: 1,
         marginLeft: 10,
@@ -62,6 +68,21 @@ const styles = StyleSheet.create({
         fontSize: 20, 
         color: '#FFFFFF',
         fontWeight: 'bold',
+=======
+    groupTitle: {
+        flex: 1, 
+        color: '#FFFFFF',
+        fontSize: 20,
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
+    moreOptionsButton: {
+        paddingLeft: 10,
+    },
+    moreOptionsText: {
+        fontSize: 24, 
+        color: '#FFFFFF',
+>>>>>>> e4110ad7cf14606ed29b63bae40089b628a401eb
     },
     
     messageListContent: {
@@ -101,7 +122,11 @@ const styles = StyleSheet.create({
         marginTop: 5,
         alignSelf: 'flex-end', 
     },
+<<<<<<< HEAD
 
+=======
+    // Input Container Styles
+>>>>>>> e4110ad7cf14606ed29b63bae40089b628a401eb
     inputContainer: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -116,7 +141,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#2C2C2C', 
         borderRadius: 25,
         paddingHorizontal: 15,
+<<<<<<< HEAD
         paddingVertical: 10, 
+=======
+        paddingVertical: Platform.OS === 'ios' ? 10 : 8, 
+>>>>>>> e4110ad7cf14606ed29b63bae40089b628a401eb
         marginRight: 10,
         color: '#FFFFFF',
         fontSize: 16,
