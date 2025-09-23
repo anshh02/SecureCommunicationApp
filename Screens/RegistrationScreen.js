@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
-<<<<<<< HEAD
 import { View, Text, TextInput, TouchableOpacity, StatusBar, ScrollView, KeyboardAvoidingView } from 'react-native';
-=======
-import { View, Text, TextInput, TouchableOpacity, StatusBar, ScrollView } from 'react-native';
->>>>>>> e4110ad7cf14606ed29b63bae40089b628a401eb
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import styles from './styles_folder/RegistrationScreenStyles';
@@ -42,7 +38,6 @@ const RegistrationScreen = ({ navigation }) => {
                     <Text style={styles.secureLabel}> VPN </Text>
                  </View>
             </View>
-<<<<<<< HEAD
             <KeyboardAvoidingView 
                 behavior="padding" 
                 style={styles.keyboardAvoidingView}
@@ -53,9 +48,6 @@ const RegistrationScreen = ({ navigation }) => {
                     showsVerticalScrollIndicator={false}
                     keyboardShouldPersistTaps="handled"
                 >
-=======
-            <ScrollView contentContainerStyle={styles.scrollViewContent}>
->>>>>>> e4110ad7cf14606ed29b63bae40089b628a401eb
 
                 <Text style={styles.title}>Create Your Secure Account</Text>
                 <Text style={styles.subtitle}>Enter your details below</Text>
@@ -115,12 +107,8 @@ const RegistrationScreen = ({ navigation }) => {
                 </TouchableOpacity>
 
                  <Text style={styles.encryptionNote}>Your info is end-to-end encrypted.</Text>
-<<<<<<< HEAD
                 </ScrollView>
             </KeyboardAvoidingView>
-=======
-            </ScrollView>
->>>>>>> e4110ad7cf14606ed29b63bae40089b628a401eb
         </SafeAreaView>
     );
 };
