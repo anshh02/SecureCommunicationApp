@@ -6,8 +6,7 @@ import {
     TouchableOpacity, 
     FlatList, 
     StatusBar,  
-    KeyboardAvoidingView, 
-    Platform 
+    KeyboardAvoidingView
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from './styles_folder/ChatScreenStyles';
@@ -98,10 +97,18 @@ const ChatScreen = ({ navigation, route }) => {
                 <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
                     <Text style={styles.backButtonText}>{'<'}</Text>
                 </TouchableOpacity>
-                <Text style={styles.groupTitle}>{groupName}</Text>
-                <TouchableOpacity style={styles.moreOptionsButton}>
-                    <Text style={styles.moreOptionsText}>⚙️</Text> {/* Placeholder for group settings/info */}
-                </TouchableOpacity>
+                <View style={styles.titleContainer}>
+                    <Text style={styles.groupTitle}>{groupName}</Text>
+                    <Text style={styles.onlineStatus}>online</Text>
+                </View>
+                <View style={styles.headerActions}>
+                    <TouchableOpacity style={styles.actionButton}>
+                        <Text style={styles.actionText}>☎</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.moreOptionsButton}>
+                        <Text style={styles.moreOptionsText}>⋮</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
 
             {/* Message List */}
@@ -117,8 +124,8 @@ const ChatScreen = ({ navigation, route }) => {
 
             {/* Message Input Area */}
             <KeyboardAvoidingView 
-                behavior={Platform.OS === "ios" ? "padding" : "height"} 
-                keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 20} // Adjust as needed
+                behavior="padding"
+                keyboardVerticalOffset={0}
                 style={styles.inputContainer}
             >
                 <TextInput
