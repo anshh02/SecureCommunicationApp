@@ -19,7 +19,7 @@ const App = () => {
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Register" component={RegistrationScreen} />
         <Stack.Screen name="GroupList" component={GroupListScreen} /> 
-        <Stack.Screen name="Chat" component={ChatScreen} />
+        <Stack.Screen name="Chat" component={ChatScreen} /> 
       </Stack.Navigator>
     </NavigationContainer>
   );
