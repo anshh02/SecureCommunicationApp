@@ -14,10 +14,10 @@ import styles from './styles_folder/ChatScreenStyles';
 // Mock Data for different groups
 const GROUP_MESSAGES = {
     'Alpha Squad': [
-        { id: '1', text: 'Alpha Team, mission briefing at 0800 hours.', sender: 'Commander Alpha', timestamp: '08:00 AM', isCurrentUser: false },
+        { id: '1', text: 'Alpha Team, Mission is to check Uri base camp', sender: 'Commander', timestamp: '04:00 AM', isCurrentUser: false },
         { id: '2', text: 'Roger that, sir. All team members ready.', sender: 'You', timestamp: '08:01 AM', isCurrentUser: true },
-        { id: '3', text: 'Equipment check complete. All systems green.', sender: 'Alpha-2', timestamp: '08:05 AM', isCurrentUser: false },
-        { id: '4', text: 'Good work team. Stay sharp out there.', sender: 'You', timestamp: '08:06 AM', isCurrentUser: true },
+        { id: '3', text: 'Equipment check complete', sender: 'Alpha-2', timestamp: '08:05 AM', isCurrentUser: false },
+        { id: '4', text: 'Good work team, Bravo Team Pakistan ko udaa do', sender: 'You', timestamp: '08:06 AM', isCurrentUser: true },
     ],
     'Command HQ': [
         { id: '1', text: 'All units report status immediately.', sender: 'HQ Control', timestamp: '09:00 AM', isCurrentUser: false },
@@ -28,8 +28,8 @@ const GROUP_MESSAGES = {
     'Veterans': [
         { id: '1', text: 'Remember our training days? Good times!', sender: 'Old Timer', timestamp: 'Yesterday', isCurrentUser: false },
         { id: '2', text: 'Those were the days! We\'ve come a long way.', sender: 'You', timestamp: 'Yesterday', isCurrentUser: true },
-        { id: '3', text: 'Jai Hind! Proud to serve with you all.', sender: 'Veteran Joe', timestamp: 'Yesterday', isCurrentUser: false },
-        { id: '4', text: 'Same here. Brotherhood forever! 🇮🇳', sender: 'You', timestamp: 'Yesterday', isCurrentUser: true },
+        { id: '3', text: 'Jai Hind! Hindustan Zindabad Tha, Zindabad Hai, Zindabad Rahega 🇮🇳', sender: 'Veteran Joe', timestamp: 'Yesterday', isCurrentUser: false },
+        { id: '4', text: 'Yeh Indian Army hain, hum dushmani mein bhi ek sharafat rakhte hain!!', sender: 'You', timestamp: 'Yesterday', isCurrentUser: true },
     ],
     'Family': [
         { id: '1', text: 'Hope everyone is staying safe out there.', sender: 'Mom', timestamp: 'Yesterday', isCurrentUser: false },
@@ -38,10 +38,10 @@ const GROUP_MESSAGES = {
         { id: '4', text: 'Count me in! I\'ll be there.', sender: 'You', timestamp: 'Yesterday', isCurrentUser: true },
     ],
     'Bravo Team': [
-        { id: '1', text: 'Operation Phoenix is a go. Confirm receipt.', sender: 'Bravo Lead', timestamp: '20/09/2025', isCurrentUser: false },
+        { id: '1', text: 'Operation Jaish-e-mohammed is on go.', sender: 'Bravo Lead', timestamp: '20/09/2025', isCurrentUser: false },
         { id: '2', text: 'Message received. Team is ready for action.', sender: 'You', timestamp: '20/09/2025', isCurrentUser: true },
-        { id: '3', text: 'Secure comms established. All clear on our end.', sender: 'Bravo-2', timestamp: '20/09/2025', isCurrentUser: false },
-        { id: '4', text: 'Excellent. Maintain radio silence until further notice.', sender: 'You', timestamp: '20/09/2025', isCurrentUser: true },
+        { id: '3', text: 'PKMKB', sender: 'Bravo-2', timestamp: '20/09/2025', isCurrentUser: false },
+        { id: '4', text: 'Unko Kashmir Chahiye aur Humko unko sar!!!', sender: 'You', timestamp: '20/09/2025', isCurrentUser: true },
     ]
 };
 
@@ -103,7 +103,7 @@ const ChatScreen = ({ navigation, route }) => {
                 </View>
                 <View style={styles.headerActions}>
                     <TouchableOpacity style={styles.actionButton}>
-                        <Text style={styles.actionText}>☎</Text>
+                        <Text style={styles.actionText}>📞</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.moreOptionsButton}>
                         <Text style={styles.moreOptionsText}>⋮</Text>
@@ -139,7 +139,7 @@ const ChatScreen = ({ navigation, route }) => {
                 <TouchableOpacity 
                     style={styles.sendButton} 
                     onPress={handleSendMessage}
-                    disabled={!newMessage.trim()} // Disable send button if input is empty
+                    disabled={!newMessage.trim()} 
                 >
                     <Text style={styles.sendButtonText}>Send</Text>
                 </TouchableOpacity>

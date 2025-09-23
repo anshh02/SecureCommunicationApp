@@ -29,6 +29,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderColor: '#43D0AC',
         borderWidth: 2,
+        marginBottom: 0,
+        marginTop: -20,
+        marginRight: 0,
     },
     shieldText: {
         color: '#43D0AC',
@@ -38,7 +41,7 @@ const styles = StyleSheet.create({
     secureLabel: {
         color: '#43D0AC',
         fontSize: 12,
-        marginTop: 5,
+        marginTop: 4,
     },
     keyboardAvoidingView: {
         flex: 1,

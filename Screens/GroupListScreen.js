@@ -5,7 +5,7 @@ import styles from './styles_folder/GroupListScreenStyles'; // Ensure path is co
 
 // Mock Data
 const MOCK_GROUPS = [
-    { id: '1', name: 'Alpha Squad', lastMessage: 'Bravo pakistan ko udaa do', timestamp: '10:42 AM', unreadCount: 2 },
+    { id: '1', name: 'Alpha Squad', lastMessage: 'Bravo Team pakistan ko udaa do', timestamp: '10:42 AM', unreadCount: 2 },
     { id: '2', name: 'Command HQ', lastMessage: 'Hows the josh', timestamp: '9:15 AM', unreadCount: 0 },
     { id: '3', name: 'Veterans', lastMessage: 'Jai Hind!!!', timestamp: 'Yesterday', unreadCount: 5 },
     { id: '4', name: 'Family', lastMessage: 'Great, thank you!', timestamp: 'Yesterday', unreadCount: 0 },
