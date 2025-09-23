@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-        flex: 0,
+        flex: 1,
         backgroundColor: '#2C2C2C',
     },
     header: {
@@ -39,6 +39,9 @@ const styles = StyleSheet.create({
         color: '#43D0AC',
         fontSize: 12,
         marginTop: 5,
+    },
+    keyboardAvoidingView: {
+        flex: 1,
     },
     scrollViewContent: {
         flexGrow: 1,

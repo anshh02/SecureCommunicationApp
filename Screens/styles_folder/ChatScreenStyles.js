@@ -11,8 +11,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         paddingHorizontal: 20,
-        paddingTop: 20,
-        paddingBottom: 15,
+        paddingTop: 10,
+        paddingBottom: 8,
         backgroundColor: '#3D3D3D', 
         borderBottomWidth: 1,
         borderBottomColor: '#4A4A4A',
@@ -25,19 +25,43 @@ const styles = StyleSheet.create({
         fontSize: 28,
         fontWeight: 'bold',
     },
+    titleContainer: {
+        flex: 1,
+        marginLeft: 10,
+    },
     groupTitle: {
-        flex: 1, 
         color: '#FFFFFF',
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: 'bold',
-        textAlign: 'center',
+    },
+    onlineStatus: {
+        color: '#43D0AC',
+        fontSize: 12,
+        marginTop: 2,
+    },
+    headerActions: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    actionButton: {
+        paddingHorizontal: 8,
+    },
+    actionText: {
+        fontSize: 20,
+        color: '#FFFFFF',
+    },
+    callIcon: {
+        fontSize: 18,
+        color: '#43D0AC',
+        fontWeight: 'bold',
     },
     moreOptionsButton: {
-        paddingLeft: 10,
+        paddingLeft: 8,
     },
     moreOptionsText: {
-        fontSize: 24, 
+        fontSize: 20, 
         color: '#FFFFFF',
+        fontWeight: 'bold',
     },
     
     messageListContent: {
@@ -77,7 +101,7 @@ const styles = StyleSheet.create({
         marginTop: 5,
         alignSelf: 'flex-end', 
     },
-    // Input Container Styles
+
     inputContainer: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -92,7 +116,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#2C2C2C', 
         borderRadius: 25,
         paddingHorizontal: 15,
-        paddingVertical: Platform.OS === 'ios' ? 10 : 8, 
+        paddingVertical: 10, 
         marginRight: 10,
         color: '#FFFFFF',
         fontSize: 16,

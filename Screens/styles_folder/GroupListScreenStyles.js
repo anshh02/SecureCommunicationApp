@@ -18,9 +18,16 @@ const styles = StyleSheet.create({
         color: '#FFFFFF',
         fontSize: 24,
         fontWeight: 'bold',
+        flex: 1,
+        textAlign: 'center',
     },
-    logoutIcon: {
+    menuIcon: {
         fontSize: 24,
+        color: '#FFFFFF',
+        fontWeight: 'bold',
+    },
+    headerSpacer: {
+        width: 24, // Same width as menuIcon to center the title
     },
     // Search Bar Styles
     searchContainer: {

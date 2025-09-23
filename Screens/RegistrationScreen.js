@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StatusBar, ScrollView } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StatusBar, ScrollView, KeyboardAvoidingView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import styles from './styles_folder/RegistrationScreenStyles';
@@ -38,7 +38,16 @@ const RegistrationScreen = ({ navigation }) => {
                     <Text style={styles.secureLabel}> VPN </Text>
                  </View>
             </View>
-            <ScrollView contentContainerStyle={styles.scrollViewContent}>
+            <KeyboardAvoidingView 
+                behavior="padding" 
+                style={styles.keyboardAvoidingView}
+                keyboardVerticalOffset={0}
+            >
+                <ScrollView 
+                    contentContainerStyle={styles.scrollViewContent}
+                    showsVerticalScrollIndicator={false}
+                    keyboardShouldPersistTaps="handled"
+                >
 
                 <Text style={styles.title}>Create Your Secure Account</Text>
                 <Text style={styles.subtitle}>Enter your details below</Text>
@@ -98,7 +107,8 @@ const RegistrationScreen = ({ navigation }) => {
                 </TouchableOpacity>
 
                  <Text style={styles.encryptionNote}>Your info is end-to-end encrypted.</Text>
-            </ScrollView>
+                </ScrollView>
+            </KeyboardAvoidingView>
         </SafeAreaView>
     );
 };
