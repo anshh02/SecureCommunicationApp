@@ -55,19 +55,11 @@ const GroupListScreen = ({ navigation }) => {
             
             {/* Header */}
             <View style={styles.header}>
-<<<<<<< HEAD
                 <TouchableOpacity onPress={() => navigation.navigate('Login')}>
                     <Text style={styles.menuIcon}>☰</Text>
                 </TouchableOpacity>
                 <Text style={styles.headerTitle}>Secure Groups</Text>
                 <View style={styles.headerSpacer} />
-=======
-                <Text style={styles.headerTitle}>Secure Groups</Text>
-                {/* Navigates to Login Screen - adjust as per your actual logout logic */}
-                <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-                    <Text style={styles.logoutIcon}>🏠</Text>
-                </TouchableOpacity>
->>>>>>> e4110ad7cf14606ed29b63bae40089b628a401eb
             </View>
 
             {/* Search Bar */}
