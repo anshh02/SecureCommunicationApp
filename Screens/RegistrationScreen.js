@@ -18,13 +18,11 @@ const EyeIcon = ({ onPress, isVisible }) => (
 
 const RegistrationScreen = ({ navigation }) => {
     const [fullName, setFullName] = useState('');
-    const [mobileNumber, setMobileNumber] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
     const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
-
 
     return (
         <SafeAreaView style={styles.container}>
@@ -40,11 +38,11 @@ const RegistrationScreen = ({ navigation }) => {
             </View>
             <KeyboardAvoidingView 
                 behavior="padding" 
-                style={styles.keyboardAvoidingView}
+                style={[styles.keyboardAvoidingView, {paddingVertical: 24}]}
                 keyboardVerticalOffset={0}
             >
                 <ScrollView 
-                    contentContainerStyle={styles.scrollViewContent}
+                    contentContainerStyle={[styles.scrollViewContent, {paddingBottom: 32}]}
                     showsVerticalScrollIndicator={false}
                     keyboardShouldPersistTaps="handled"
                 >
@@ -59,14 +57,7 @@ const RegistrationScreen = ({ navigation }) => {
                     value={fullName}
                     onChangeText={setFullName}
                 />
-                 <TextInput
-                    style={styles.input}
-                    placeholder="Mobile Number"
-                    placeholderTextColor="#8A8A8A"
-                    value={mobileNumber}
-                    onChangeText={setMobileNumber}
-                    keyboardType="phone-pad"
-                />
+                
                 <TextInput
                     style={styles.input}
                     placeholder="Email Address ID"
@@ -100,7 +91,6 @@ const RegistrationScreen = ({ navigation }) => {
                     />
                     <EyeIcon onPress={() => setIsConfirmPasswordVisible(!isConfirmPasswordVisible)} isVisible={isConfirmPasswordVisible}/>
                 </View>
-
 
                 <TouchableOpacity style={styles.registerButton}>
                     <Text style={styles.registerButtonText}>REGISTER</Text>

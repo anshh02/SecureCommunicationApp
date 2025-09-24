@@ -27,7 +27,7 @@ const LoginScreen = ({ navigation }) => {
 
                 <TextInput
                     style={styles.input}
-                    placeholder="Mobile / Email"
+                    placeholder="UserName / Email"
                     placeholderTextColor="#8A8A8A"
                     value={email}
                     onChangeText={setEmail}
