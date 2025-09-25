@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StatusBar, ScrollView, KeyboardAvoidingView } from 'react-native';
+import { useState } from 'react';
+import { Alert, KeyboardAvoidingView, ScrollView, StatusBar, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { AuthAPI } from '../api';
+import { TokenStorage } from '../tokenStorage';
 import styles from './styles_folder/RegistrationScreenStyles';
 
 const ShieldIcon = () => (
@@ -17,12 +19,78 @@ const EyeIcon = ({ onPress, isVisible }) => (
 ); // eyeIcon
 
 const RegistrationScreen = ({ navigation }) => {
-    const [fullName, setFullName] = useState('');
+    const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
     const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
+    const [loading, setLoading] = useState(false);
+
+    const checkLoginStatus = async () => {
+            const isAuth = await TokenStorage.isAuthenticated();
+            
+            if (isAuth) {
+                navigation.navigate('GroupList');
+            }
+        };
+    
+        useEffect(() => {
+            checkLoginStatus();
+        }, []);
+
+    const validateEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+
+    const handleRegister = async () => {
+        // Validation
+        if (!username.trim() || !email.trim() || !password.trim() || !confirmPassword.trim()) {
+            Alert.alert('Error', 'Please fill in all fields');
+            return;
+        }
+
+        // if (!validateEmail(email.trim())) {
+        //     Alert.alert('Error', 'Please enter a valid email address');
+        //     return;
+        // }
+
+        if (password !== confirmPassword) {
+            Alert.alert('Error', 'Passwords do not match');
+            return;
+        }
+
+        // if (password.length < 6) {
+        //     Alert.alert('Error', 'Password must be at least 6 characters long');
+        //     return;
+        // }
+
+        setLoading(true);
+        try {
+            const result = await AuthAPI.register(username.trim(), email.trim(), password);
+            
+            if (result.success) {
+                const stored = await TokenStorage.setToken(result.access_token);
+                if (!stored) {
+                    Alert.alert('Success', result.message || 'User created, but token not saved', [
+                        { text: 'OK', onPress: () => navigation.navigate('Login') }
+                    ]);
+                    return;
+                }
+                await AuthAPI.getCurrentUser();
+                Alert.alert('Success', result.message || 'User created successfully', [
+                    { text: 'Continue', onPress: () => navigation.navigate('GroupList') }
+                ]);
+            } else {
+                Alert.alert('Registration Failed', result.error);
+            }
+        } catch (error) {
+            Alert.alert('Error', 'An unexpected error occurred');
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
         <SafeAreaView style={styles.container}>
@@ -52,10 +120,11 @@ const RegistrationScreen = ({ navigation }) => {
 
                 <TextInput
                     style={styles.input}
-                    placeholder="Full Name"
+                    placeholder="Username"
                     placeholderTextColor="#8A8A8A"
-                    value={fullName}
-                    onChangeText={setFullName}
+                    value={username}
+                    onChangeText={setUsername}
+                    autoCapitalize="none"
                 />
                 
                 <TextInput
@@ -92,8 +161,12 @@ const RegistrationScreen = ({ navigation }) => {
                     <EyeIcon onPress={() => setIsConfirmPasswordVisible(!isConfirmPasswordVisible)} isVisible={isConfirmPasswordVisible}/>
                 </View>
 
-                <TouchableOpacity style={styles.registerButton}>
-                    <Text style={styles.registerButtonText}>REGISTER</Text>
+                <TouchableOpacity 
+                    style={[styles.registerButton, loading && { opacity: 0.7 }]} 
+                    onPress={handleRegister}
+                    disabled={loading}
+                >
+                    <Text style={styles.registerButtonText}>{loading ? 'REGISTERING...' : 'REGISTER'}</Text>
                 </TouchableOpacity>
 
                  <Text style={styles.encryptionNote}>Your info is end-to-end encrypted.</Text>
